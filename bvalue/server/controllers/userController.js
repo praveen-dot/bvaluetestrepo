@@ -212,7 +212,7 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    pool.query('DELETE FROM employees where id==?', [req.params.id], (err, rows) => {
+    pool.query('DELETE FROM employees where id=?', [req.params.id], (err, rows) => {
         if (!err) {
             pool.query('SELECT * FROM employees', (err, rows) => {
                 console.log("inside the get request")
